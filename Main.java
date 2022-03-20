@@ -2,7 +2,8 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-import metods.BubbleSort;
+import methods.BubbleSort;
+import methods.CountingSort;
 
 public class Main {
 
@@ -17,10 +18,14 @@ public class Main {
 			list.add(rnd.nextInt(100));
 		}
 		
-		output = new ArrayList<>(list);
 		
-		BubbleSort bubbleSort = new BubbleSort();
-		bubbleSort.sort(output);
+		//BubbleSort bubbleSort = new BubbleSort();
+		//output = new ArrayList<>(bubbleSort.sort(list));
+		
+		
+		CountingSort countingSort = new CountingSort();
+		output = new ArrayList<>(countingSort.sort(list));
+		
 		
 		System.out.println(list);
 		System.out.println(output);

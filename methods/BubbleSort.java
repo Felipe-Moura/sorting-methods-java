@@ -1,4 +1,4 @@
-package metods;
+package methods;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class BubbleSort {
 	public ArrayList<Integer> sort(ArrayList<Integer> list){
 		
 		Integer aux = 0;
-		ArrayList<Integer> myList = list;
+		ArrayList<Integer> myList = new ArrayList<>(list);
 		
 		for(int i = 1; i < myList.size(); i++) {
 			for(int j = 0; j < myList.size()-1; j++) {
