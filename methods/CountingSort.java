@@ -12,7 +12,41 @@ public class CountingSort {
 		ArrayList<Integer> sorted = new ArrayList<Integer>();
 		int maxValue = 0;
 		
-		//Acha o maior valor
+		//Find the max value of list
+		maxValue = findMaxValue(list);
+		
+		//Fill counter with maxValue elements 
+		fillArray(counter, maxValue);
+		
+		//Fill sorted with list.size()-1 elements
+		fillArray(sorted, list.size()-1);
+		
+		//Stores the number of occurrences of elements from list
+		for(int i = 0; i < list.size(); i++) {
+			counter.set(list.get(i), counter.get(list.get(i)) + 1);
+		}
+		
+		//Find the correct position of the elements from list
+		for(int i = 1; i < counter.size(); i++) {
+			counter.set(i, counter.get(i) + counter.get(i - 1));
+		}
+		
+		//Store the values of list in the correct position of sorted
+		for(int i = 0; i < list.size(); i++) {
+			counter.set(list.get(i), counter.get(list.get(i)) - 1);
+			sorted.set(counter.get(list.get(i)), list.get(i));
+			
+		}
+		
+		return sorted;
+		
+	}
+	
+	//Given a list of positive integers, find the biggest one
+	public int findMaxValue(ArrayList<Integer> list) {
+		
+		int maxValue = 0;
+		
 		for(int i = 0; i < list.size(); i++) {
 			if(i == 0) {
 				maxValue = list.get(i);
@@ -24,37 +58,15 @@ public class CountingSort {
 			}
 		}
 		
-		//faz o counter ter o número de casas equivalente ao maior valor
-		for(int i = 0; i <= maxValue; i++) {
-			counter.add(0);
+		return maxValue;
+	}
+	
+	//Fill a array with the given size
+	public void fillArray(ArrayList<Integer> list, int size) {
+		
+		for(int i = 0; i <= size; i++) {
+			list.add(0);
 		}
-		
-		//soma um ao valor da casa equivalente ao valor da posição de list
-		for(int i = 0; i < list.size(); i++) {
-			counter.set(list.get(i), counter.get(list.get(i)) + 1);
-		}
-		
-		//Soma os valores das casas do counter para achar as posições corretas dos elementos 
-		for(int i = 1; i < counter.size(); i++) {
-			counter.set(i, counter.get(i) + counter.get(i - 1));
-		}
-		
-		//faz o sorted ter o número de casas do list
-		for(int i = 0; i < list.size(); i++) {
-			sorted.add(0);
-		}
-		
-		//Coloca os valores nas posições corretas
-		for(int i = 0; i < list.size(); i++) {
-			counter.set(list.get(i), counter.get(list.get(i)) - 1);
-			sorted.set(counter.get(list.get(i)), list.get(i));
-			
-		}
-		
-		//System.out.println(counter);
-		//System.out.println(sorted);
-		
-		return sorted;
 		
 	}
 
