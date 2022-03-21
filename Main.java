@@ -5,6 +5,7 @@ import java.util.Random;
 import methods.BubbleSort;
 import methods.CountingSort;
 import methods.InsertionSort;
+import methods.MergeSort;
 
 public class Main {
 
@@ -28,8 +29,12 @@ public class Main {
 		//output = new ArrayList<>(countingSort.sort(list));
 		
 		
-		InsertionSort insertionSort = new InsertionSort();
-		output = new ArrayList<>(insertionSort.sort(list));
+		//InsertionSort insertionSort = new InsertionSort();
+		//output = new ArrayList<>(insertionSort.sort(list));
+		
+		
+		MergeSort mergeSort = new MergeSort();
+		output = mergeSort.sort(list);
 		
 		
 		System.out.println(list);

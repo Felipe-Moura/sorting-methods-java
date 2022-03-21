@@ -11,6 +11,7 @@ public class InsertionSort {
 		ArrayList<Integer> sorted = new ArrayList<Integer>(list);
 		int aux;
 		
+		//Sort the elements verifying if the element is bigger than its predecessor
 		for(int i = 1; i < sorted.size(); i++) {
 			for(int j = i; j > 0; j--) {
 				if(sorted.get(j) < sorted.get(j - 1)) {
