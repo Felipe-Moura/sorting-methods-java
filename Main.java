@@ -6,6 +6,7 @@ import methods.BubbleSort;
 import methods.CountingSort;
 import methods.InsertionSort;
 import methods.MergeSort;
+import methods.SelectionSort;
 
 public class Main {
 
@@ -33,8 +34,12 @@ public class Main {
 		//output = new ArrayList<>(insertionSort.sort(list));
 		
 		
-		MergeSort mergeSort = new MergeSort();
-		output = mergeSort.sort(list);
+		//MergeSort mergeSort = new MergeSort();
+		//output = mergeSort.sort(list);
+		
+		
+		SelectionSort selectionSort = new SelectionSort();
+		output = selectionSort.sort(list);
 		
 		
 		System.out.println(list);
